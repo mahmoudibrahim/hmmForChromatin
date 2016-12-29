@@ -5,14 +5,14 @@ options(scipen = 1000)
 
 
 ###define variables###
-samplingSeed = 666
+samplingSeed = 666 #seed used for randomized steps (used in data transformation, see Duttke et al. Mol. Cell, 2015.)
 out = "" #path to output folder
 inF = "" #path to input folder
 marks = c("h3k4me1","h3k4me2","h3k4me3","h3k27ac") #which histone modifications to learn the HMM
 clustNum = 2:10 #number of chromatin states to attempt
 resolution = 10 #the resolution the wig files are produced with in basepairs
 minimumSeqLen = 500 #minimum length in basepairs of a genome segment to be used in learning the HMM
-chromo = "chr1" #which chromosomes to use for the HMM learning
+chromo = c("chr1","chr2") #which chromosomes to use for the HMM learning
 maxIter = 200 #maximum number of iterations to learn the HMM
 cornum = 10 #number of cores to use during learning the HMM
 color = colorRampPalette(c("white","blue"))(n=1000) #color palette to produce the chromatin state heatmap
