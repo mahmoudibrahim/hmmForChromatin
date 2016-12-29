@@ -10,7 +10,7 @@ out = "" #path to output folder
 inF = "" #path to input folder
 resol = 10 #resolution used to produce the wig files in basepairs
 marks = c("h3k4me1","h3k4me2","h3k4me3","h3k27ac") #which histone modifications were used to learn the HMM
-inmodel = "/data/ohler/Mahmoud/scott/chromatin/gm12878/hmm/hmm-10.RData" #path to RData file with the model (output of bw.r)
+inmodel = "" #path to RData file with the model (output of bw.r)
 chromo = c("chr1","chr2","chr3") #which chromosomes to segment
 cornum = 10 #how many cores to use
 
