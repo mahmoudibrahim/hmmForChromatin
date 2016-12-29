@@ -7,7 +7,8 @@ options(scipen = 1000)
 ###define variables###
 samplingSeed = 666 #seed used for randomized steps (used in data transformation, see Duttke et al. Mol. Cell, 2015.)
 out = "" #path to output folder
-inF = "" #path to input folder 
+inF = "" #path to input folder
+resol = 10 #resolution used to produce the wig files in basepairs
 marks = c("h3k4me1","h3k4me2","h3k4me3","h3k27ac") #which histone modifications were used to learn the HMM
 inmodel = "/data/ohler/Mahmoud/scott/chromatin/gm12878/hmm/hmm-10.RData" #path to RData file with the model (output of bw.r)
 chromo = c("chr1","chr2","chr3") #which chromosomes to segment
@@ -240,8 +241,8 @@ message("Saving Information to Disk...")
 why = unlist(mclapply(1:nrow(probsAll), whichmax, probsAll, mc.preschedule = TRUE, mc.cores = cornum))
 kc = cbind(why, probsAll, normaAll)
 aa = rep(chromName, length(zeros))
-bb = ((zeros*10) - 9 - 1)
-cc = (zeros*10)
+bb = ((zeros*resol) - (resol - 1) - 1)
+cc = (zeros*resol)
 write.table(cbind(aa,bb,cc,why), sep = "\t", file = paste0(out, "/model-", chromName, "-", models, ".probs"), append = FALSE, quote = FALSE, col.names = FALSE, row.names = FALSE)
 
 
