@@ -276,6 +276,13 @@ llPrev = likelihood
 	
 }
 
+numParam = (length(wei) - 1) + (length(as.vector(means))) + (length(as.vector(sds)))
+numData = nrow(datInd)
+AIC = (2*numParam) - (2*likelihood)
+BIC = (numParam*(log(numData))) - (2*likelihood)
+
+message(paste0("AIC: ", AIC))
+message(paste0("BIC: ", BIC))
 
 message("Saving Model to Disk...")
 model = list()
@@ -283,6 +290,8 @@ model$means = means
 model$covariance = sds
 model$likelihood = likelihood
 model$wei = wei
+model$AIC = AIC
+model$BIC = BIC
 save(model, file = paste0(out, "/hmm-", models, ".RData"))
 
 
