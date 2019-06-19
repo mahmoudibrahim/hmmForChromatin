@@ -18,7 +18,7 @@ cornum = 10 #number of cores to use during learning the HMM
 color = colorRampPalette(c("white","blue"))(n=1000) #color palette to produce the chromatin state heatmap
 
 ##note: histone modification wig files should be arranged as follows (see line 145 of this script):
-##inF "/" marks[f] "-" chromo[c] ".wig"
+##inF "/" marks[f] "-" chromo[c] ".bedGraph"
 #########
 
 
@@ -142,7 +142,7 @@ files = list();
 for (f in 1:length(marks)) {
 	anathema = list()
 	for (c in 1:length(chromo)) {
-		anathema[[c]] = paste0(inF, "/", marks[f], "-", chromo[c], ".wig")
+		anathema[[c]] = paste0(inF, "/", marks[f], "-", chromo[c], ".bedGraph")
 	}
 	files[[f]] = anathema
 }
