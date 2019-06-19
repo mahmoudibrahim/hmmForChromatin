@@ -10,14 +10,14 @@ out = "" #path to output folder
 inF = "" #path to input folder
 marks = c("h3k4me1","h3k4me2","h3k4me3","h3k27ac") #which histone modifications to learn the HMM
 clustNum = 2:10 #number of chromatin states to attempt
-resolution = 10 #the resolution the wig files are produced with in basepairs
+resolution = 10 #the resolution the bedGraph files are produced with in basepairs
 minimumSeqLen = 500 #minimum length in basepairs of a genome segment to be used in learning the HMM
 chromo = c("chr1","chr2") #which chromosomes to use for the HMM learning
 maxIter = 200 #maximum number of iterations to learn the HMM
 cornum = 10 #number of cores to use during learning the HMM
 color = colorRampPalette(c("white","blue"))(n=1000) #color palette to produce the chromatin state heatmap
 
-##note: histone modification wig files should be arranged as follows (see line 145 of this script):
+##note: histone modification bedGraph files should be arranged as follows (see line 145 of this script):
 ##inF "/" marks[f] "-" chromo[c] ".bedGraph"
 #########
 
