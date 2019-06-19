@@ -14,8 +14,8 @@ inmodel = "" #path to RData file with the model (output of bw.r)
 chromo = c("chr1","chr2","chr3") #which chromosomes to segment
 cornum = 10 #how many cores to use
 
-##note: histone modification wig files should be arranged as follows (see line 180 of this script):
-##inF "/" marks[f] "-" chromo[c] ".wig"
+##note: histone modification bedGraph files should be arranged as follows (see line 180 of this script):
+##inF "/" marks[f] "-" chromo[c] ".bedGraph"
 #########
 
 
@@ -178,7 +178,7 @@ chromName = paste0(chromo[xyz])
 message(paste0("Importing Data for Chromosome ", chromName, "..."))
 files = list();
 for (f in 1:length(marks)) {
-	anathema = paste0(inF, "/", marks[f], "-", chromName, ".wig")
+	anathema = paste0(inF, "/", marks[f], "-", chromName, ".bedGraph")
 	files[[f]] = anathema
 }
 dat = mclapply(files, prasein, marks, mc.cores = cornum, mc.preschedule = FALSE)
